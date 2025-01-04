@@ -26,10 +26,10 @@ module.exports = {
           montserrat: ["Montserrat", "sans-serif"],
         },
         content: {
-          evolvetext: "url('./assets/EvolveText.png')",
-          abstractwaves: "url('./assets/AbstractWaves.png')",
-          sparkles: "url('./assets/Sparkles.png')",
-          circles: "url('./assets/Circles.png')",
+          evolvetext: "url('./public/EvolveText.png')",
+          abstractwaves: "url('./public/AbstractWaves.png')",
+          sparkles: "url('./public/Sparkles.png')",
+          circles: "url('./public/Circles.png')",
         },
       },
       screens: {

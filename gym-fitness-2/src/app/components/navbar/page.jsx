@@ -1,10 +1,10 @@
+"use client"
 import { useState } from "react";
-import logo from './../../assets/Logo.png';
+import Image from "next/image";
+import logo from '../../../../public/Logo.png'
 import { RiMenu3Line } from "react-icons/ri";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+import { useRouter } from "next/navigation";
 const Navbar = () => {
 
   const scrolltoSection =(sectionId)=>{
@@ -17,28 +17,23 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
-  const navigation = useNavigate();
+  const router = useRouter();
 
   const handleBenefits =() =>{
-    navigation("/benefits")
+    router.push("/benefits")
     setIsMenuOpen(false);
   }
 
   const handlehome =() =>{
-    navigation("/home")
+    router.push("/home")
     setIsMenuOpen(false);
   }
   const handleclasses =() =>{
-    navigation("/ourClasses")
+    router.push("/ourClasses")
     setIsMenuOpen(false);
   }
   const handlecontact =() =>{
-    navigation("/contact")
-    setIsMenuOpen(false);
-  }
-
-  const handleSignIn =() =>{
-    navigation("/signin")
+    router.push("/contact")
     setIsMenuOpen(false);
   }
 
@@ -48,7 +43,7 @@ const Navbar = () => {
       <div className="w-full h-full bg-gray-200 p-4 md:px-12 font-dmsans font-semibold">
         <div className="flex items-center justify-between">
           <div>
-            <img onClick={handlehome} src={logo} alt="logo" className="w-auto h-8 md:h-auto" />
+            <Image onClick={handlehome} src={logo} alt="logo" className="w-auto h-8 md:h-auto" />
           </div>
 
           {/* Desktop Menu */}
@@ -64,9 +59,8 @@ const Navbar = () => {
           {/* Desktop Buttons */}
           <div className="hidden md:block">
             <ul className="flex items-center justify-between gap-6 h-16 cursor-pointer">
-              <li onClick={handleSignIn} className="hover:text-primary-500"><Link to='/signin'>Sign In</Link></li>
               <button onClick={handlecontact} className="bg-yellow-400 h-12 px-4 w-72 rounded-md hover:bg-yellow-500 transition duration-300">
-                <Link to='/contact'>Become a Member</Link>
+                Become a Member
               </button>
             </ul>
           </div>
@@ -90,13 +84,12 @@ const Navbar = () => {
             className="h-full md:hidden absolute top-16 left-0 right-0 bg-gray-200 z-50"
           >
             <ul className="flex flex-col items-center gap-4 py-4 cursor-pointer">
-              <li onClick={handlehome} className="hover:text-primary-500"><Link to='/home'>Home</Link></li>
-              <li onClick={handleBenefits} className="hover:text-primary-500"><Link to ='/benefits'>Benefits</Link></li>
-              <li onClick={handleclasses} className="hover:text-primary-500"><Link to='/ourClsses'>Our Classes</Link></li>
-              <li onClick={handlecontact} className="hover:text-primary-500"><Link to='/contact'> Contact </Link></li>
-              <li onClick={handleSignIn} className="hover:text-primary-500"><Link to='/signin'></Link>Sign In</li>
+              <li onClick={handlehome} className="hover:text-primary-500">Home</li>
+              <li onClick={handleBenefits} className="hover:text-primary-500">Benefits</li>
+              <li onClick={handleclasses} className="hover:text-primary-500">Our Classes</li>
+              <li onClick={handlecontact} className="hover:text-primary-500">Contact</li>
               <button onClick={handlecontact} className="bg-yellow-400 h-12 px-4 w-72 rounded-md hover:bg-yellow-500 transition duration-300">
-                <Link to='/contact'>Become a Member</Link>
+                Become a Member
               </button>
             </ul>
           </motion.div>
